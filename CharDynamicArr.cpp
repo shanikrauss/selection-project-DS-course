@@ -64,6 +64,14 @@
 		this->phySize = size;
 	}
 
+	void CharDynamicArr::reset()
+	{
+		delete[] arr;
+		arr = new char[1];
+		logSize = 0;
+		phySize = 1;
+	}
+
 
 	void CharDynamicArr::add(char val)
 	{
@@ -90,3 +98,4 @@
 
 		return string;
 	}
+
