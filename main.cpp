@@ -1,11 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream> 
-#include<string>
-#include <fstream>
-#include <chrono>
-#include <iomanip>
+
 #include "CharDynamicArr.h"
 #include "DoubleDynamicArr.h"
+
+#include <iomanip>
+
 
 using namespace std;
 
@@ -118,6 +118,8 @@ int partition(DoubleDynamicArr& arr, int pivot, int index)
 			}
 		}
 	}
+
+	return pivot;
 }
 
 
@@ -143,10 +145,13 @@ int partition(DoubleDynamicArr& arr, int pivot, int index)
 //}
 
 
-int main() {
+int main()
+{
 	int n = 0, i = 0, j = 0;
 	CharDynamicArr number;
+	DoubleDynamicArr inputArr;
 	char ch;
+
 
 	//getting n, the amount of numbers, and i, the index of the requested number.
 	cin >> n >> i;
@@ -161,7 +166,7 @@ int main() {
 	ch = getchar(); //getting '\n'
 
 	//getting the numbers from the user
-	for (j = 0; i < n; j++) {
+	for (j = 0; j < n; j++) {
 		ch=getchar();
 		
 		while (ch != ' ' && ch != '\n')
@@ -169,94 +174,32 @@ int main() {
 			number.add(ch);
 			ch = getchar();
 			
-		} //how to reset the object"number"?
+		} 
 		if(!checkValidInputOfNum(&number))
 		{
 			cout << "wrong input" << endl;
 			exit(1);
 		}
-		number.reset();
+
+		char* stringNumber = number.getString(); // get str from class
+		double valToAddArr = atof(stringNumber); // str to double
+		inputArr.pushBack(valToAddArr); // add number to arr
+
+		number.reset(); // reset
+	}
+	cout << setprecision(4);
+	for (j = 0; j < n; j++) {
+		double f = inputArr.get(j);
+		cout << f << endl;
+		cout << inputArr.get(j) << endl;
+
 	}
 
+	double f = 3.14159;
+	std::cout << std::setprecision(5) << f << '\n';
+	std::cout << std::setprecision(9) << f << '\n';
+	std::cout << std::fixed;
+	std::cout << std::setprecision(5) << f << '\n';
+	std::cout << std::setprecision(9) << f << '\n';
 
-
-
-
-
-
-	//if (isNValid(strN)) {
-	//	n = stoi(strN);
-	//}
-	//if (n == 0)
-	//{
-	//	cout << 0 << endl << 0 << endl << 0 << endl;
-	//}
-	//else
-	//{
-	//	getline(cin, str1);
-	//	getline(cin, str2);
-
-	//	if (str1.length() != n || str2.length() != n || !isStrValid(str1, str2))
-	//	{
-	//		cout << " wrong output" << endl;
-	//		exit(1);
-	//	}
-
-	//	NumArray x(str1);
-	//	NumArray y(str2);
-
-	//	auto start = chrono::high_resolution_clock::now();
-	//	// unsync the I/O of C and C++.
-	//	ios_base::sync_with_stdio(false);
-	//	NumArray res = longMult(x, y); // Here you put the name of the function you wish to measure
-	//	auto end = chrono::high_resolution_clock::now();
-	//	// Calculating total time taken by the program.
-	//	double time_taken_long_mult =
-	//		chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-	//	time_taken_long_mult *= 1e-9;
-
-	//	start = chrono::high_resolution_clock::now();
-	//	// unsync the I/O of C and C++.
-	//	ios_base::sync_with_stdio(false);
-	//	NumArray res1 = kartsuba(x, y);// Here you put the name of the function you wish to measure
-	//	end = chrono::high_resolution_clock::now();
-	//	// Calculating total time taken by the program.
-	//	double time_taken_rec_Kartsuba =
-	//		chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-	//	time_taken_rec_Kartsuba *= 1e-9;
-
-	//	start = chrono::high_resolution_clock::now();
-	//	// unsync the I/O of C and C++.
-	//	ios_base::sync_with_stdio(false);
-	//	NumArray res2 = kartsubaStack(x, y); // Here you put the name of the function you wish to measure
-	//	end = chrono::high_resolution_clock::now();
-	//	// Calculating total time taken by the program.
-	//	double time_taken_non_rec_Kartsuba =
-	//		chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-	//	time_taken_non_rec_Kartsuba *= 1e-9;
-
-	//	ofstream myfile("Measure.txt"); // The name of the file
-	//	myfile << "Time taken by function <longMult> is : " << fixed
-	//		<< time_taken_long_mult << setprecision(9);
-	//	myfile << " sec" << endl;
-
-	//	myfile << "Time taken by function <Kartsuba> is : " << fixed
-	//		<< time_taken_rec_Kartsuba << setprecision(9);
-	//	myfile << " sec" << endl;
-
-	//	myfile << "Time taken by function <KartsubaStack> is : " << fixed
-	//		<< time_taken_non_rec_Kartsuba << setprecision(9);
-	//	myfile << " sec" << endl;
-
-
-	//	cout << "Long multiplication : x * y = "<< res << endl;
-
-	//	cout << "Karatsuba(recursive) : x * y = " << res1 << endl;
-
-	//	cout << "Karatsuba (iterative): x * y = "<< res2 << endl;
-
-	//	myfile.close();
-
-	//}
-	//return 0;
 }

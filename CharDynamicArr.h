@@ -28,5 +28,5 @@
 
 		char* getString();
 
-
+		void reset();
 	};

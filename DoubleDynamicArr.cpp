@@ -50,7 +50,7 @@
 
 
 
-	int DoubleDynamicArr::get(int idx) const
+	double DoubleDynamicArr::get(int idx) const
 	{
 		return arr[idx];
 	}
@@ -102,18 +102,19 @@
 
 
 
-	void DoubleDynamicArr::add(double val)
+	
+
+
+	void DoubleDynamicArr::pushBack(double val) 
 	{
 		// resize array if needed
 		if (logSize == phySize) {
 			resize(phySize * 2 + 1);
 		}
-
 		// add new value
 		arr[logSize] = val;
 		++logSize;
 	}
-
 
 	void DoubleDynamicArr::swap(int idx1, int idx2)
 	{

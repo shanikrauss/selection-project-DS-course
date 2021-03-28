@@ -22,7 +22,7 @@
 		double& operator[](int i);
 
 
-		int get(int idx) const;
+		double get(int idx) const;
 		void set(int idx, double val);
 
 		void addVal(int idx, double val = 1);
@@ -30,6 +30,8 @@
 		void setLogSize(int size);
 		int getPhySize() const;
 		int getLogSize() const;
-		void add(double val = 0);
 		void swap(int idx1, int idx2);
+
+		//void add(double val = 0);
+		void pushBack(double val);
 	};

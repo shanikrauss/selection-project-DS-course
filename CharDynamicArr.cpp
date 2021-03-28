@@ -85,7 +85,7 @@
 		++logSize;
 	}
 
-
+	//why new str? 
 	char* CharDynamicArr::getString()
 	{
 		char* string = new char(logSize);
