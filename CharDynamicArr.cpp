@@ -85,17 +85,13 @@
 		++logSize;
 	}
 
-	//why new str? 
-	char* CharDynamicArr::getString()
+	const char* CharDynamicArr::getString() const 
 	{
-		char* string = new char(logSize);
-		int i=0;
-		
-		for (i = 0; i < logSize; i++)
-		{
-			string[i] = arr[i];
-		}
-
-		return string;
+		return arr;
 	}
 
+
+	char* CharDynamicArr::getString()
+	{
+		return arr;
+	}

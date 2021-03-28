@@ -27,6 +27,8 @@
 		void add(char val = '0');
 
 		char* getString();
+		const char* getString() const;
+
 
 		void reset();
 	};

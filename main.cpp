@@ -124,25 +124,25 @@ int partition(DoubleDynamicArr& arr, int pivot, int index)
 
 
 
-//double Select(DoubleDynamicArr& arr, int left, int right, int idx)
-//{
-//	int pivot, leftPart;
-//
-//	pivot = partition(arr, left, right);
-//	leftPart = pivot - left + 1;
-//	if (idx == leftPart)
-//	{
-//		return arr.get(pivot);
-//	}
-//	if (idx < leftPart)
-//	{
-//		return Select(arr, left, pivot - 1, idx);
-//	}
-//	else
-//	{
-//		return Select(arr, pivot + 1, right, idx - leftPart);
-//	}
-//}
+double Select(DoubleDynamicArr& arr, int left, int right, int idx)
+{
+	int pivot, leftPart;
+
+	pivot = partition(arr, left, right);
+	leftPart = pivot - left + 1;
+	if (idx == leftPart)
+	{
+		return arr.get(pivot);
+	}
+	if (idx < leftPart)
+	{
+		return Select(arr, left, pivot - 1, idx);
+	}
+	else
+	{
+		return Select(arr, pivot + 1, right, idx - leftPart);
+	}
+}
 
 
 int main()
@@ -187,19 +187,5 @@ int main()
 
 		number.reset(); // reset
 	}
-	cout << setprecision(4);
-	for (j = 0; j < n; j++) {
-		double f = inputArr.get(j);
-		cout << f << endl;
-		cout << inputArr.get(j) << endl;
-
-	}
-
-	double f = 3.14159;
-	std::cout << std::setprecision(5) << f << '\n';
-	std::cout << std::setprecision(9) << f << '\n';
-	std::cout << std::fixed;
-	std::cout << std::setprecision(5) << f << '\n';
-	std::cout << std::setprecision(9) << f << '\n';
 
 }
